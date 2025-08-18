@@ -365,7 +365,7 @@ function App() {
       </div>
 
       {/* Chat Container */}
-      <div className="max-w-5xl mx-auto px-10 py-1">
+      <div className="max-w-5xl mx-auto px-4 py-1">
         <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
           {/* Messages */}
           <div className="h-[600px] overflow-y-auto p-6 space-y-4">
@@ -530,7 +530,7 @@ function App() {
       </div>
 
       {/* Footer */}
-      <div className="text-center py-2 text-sm text-gray-500">
+      <div className="text-center py-16 text-sm text-gray-500">
         <p>Powered by Simplific Pro • Seus dados estão seguros conosco</p>
       </div>
     </div>
