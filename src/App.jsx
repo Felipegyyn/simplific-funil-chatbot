@@ -23,25 +23,25 @@ import './App.css';
 const CHAT_FLOW = {
   welcome: {
     type: 'bot',
-    message: 'Olá! 👋 Sou o assistente financeiro do Simplific Pro. Estou aqui para te ajudar a descobrir como transformar sua vida financeira.',
+    message: 'Opa! E aí? 👋 Sou o assessor Simplific. Estou aqui para te ajudar a ter liberdade financeira',
     delay: 1000,
     next: 'intro'
   },
   intro: {
     type: 'bot',
-    message: 'Vou fazer algumas perguntas rápidas para entender melhor sua situação financeira atual. Isso vai me ajudar a criar um diagnóstico personalizado para você. Pode ser?',
+    message: 'Vou te fazer algumas perguntinhas rápidas para entender seu momento financeiro. Isso vai me ajudar muito a criar um diagnóstico personalizado para você. Vamos lá?',
     delay: 2000,
     options: [
-      { text: 'Sim, vamos começar! 🚀', next: 'question1' },
-      { text: 'Tenho algumas dúvidas...', next: 'doubts' }
+      { text: 'Opa! vamos começar! 🚀', next: 'question1' },
+      { text: 'Ainda tenho dúvidas...', next: 'doubts' }
     ]
   },
   doubts: {
     type: 'bot',
-    message: 'Entendo suas dúvidas! Este diagnóstico é 100% gratuito e leva apenas 2 minutos. Não vamos pedir dados bancários ou informações sensíveis. Apenas algumas perguntas para entender seu perfil financeiro. Vamos começar?',
+    message: 'Entendo suas dúvidas! Mas este diagnóstico é 100% gratuíto e leva menos de 1 minuto. Não vamos pedir informações sensíveis. Apenas algumas perguntas para entender seu perfil financeiro. Bora?',
     delay: 2500,
     options: [
-      { text: 'Ok, vamos lá! ✨', next: 'question1' },
+      { text: 'Certo! Vamos lá! ✨', next: 'question1' },
       { text: 'Ainda não estou convencido(a)', next: 'convince' }
     ]
   },
@@ -50,12 +50,12 @@ const CHAT_FLOW = {
     message: 'Sem problemas! Mais de 10.000 pessoas já fizeram este diagnóstico e descobriram como organizar suas finanças. É rápido, seguro e pode ser o primeiro passo para sua transformação financeira. Que tal tentar?',
     delay: 2000,
     options: [
-      { text: 'Está bem, vou tentar! 💪', next: 'question1' }
+      { text: 'Está bem, vou tentar! Me convenceu 💪', next: 'question1' }
     ]
   },
   question1: {
     type: 'bot',
-    message: 'Perfeito! Primeira pergunta: Como você se sente em relação ao controle das suas finanças no dia a dia?',
+    message: 'Perfeito! Essa é a primeira pergunta: Como você se sente em relação ao controle das suas finanças no dia a dia?',
     icon: TrendingDown,
     delay: 1500,
     options: [
@@ -101,7 +101,21 @@ const CHAT_FLOW = {
       { text: 'Sou um investidor experiente 🎯', value: 'none', next: 'question5' }
     ]
   },
+
   question5: {
+    type: 'bot',
+    message: 'Como você planeja?',
+    icon: DollarSign,
+    delay: 1500,
+    options: [
+      { text: 'Não planejo nada. Só gasto 😅', value: 'high', next: 'question6' },
+      { text: 'Tento criar um orçamento, mas é dificil 🤔', value: 'medium', next: 'question6' },
+      { text: 'Tento gastar o que planejo quase sempre 📈', value: 'low', next: 'question6' },
+      { text: 'Só gasto exatamente o que está no meu orçamento 🎯', value: 'none', next: 'question6' }
+    ]
+  },
+
+  question6: {
     type: 'bot',
     message: 'Última pergunta: Como você se sente sobre seu futuro financeiro?',
     icon: Shield,
