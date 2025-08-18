@@ -530,7 +530,7 @@ function App() {
       </div>
 
       {/* Footer */}
-      <div className="text-center py-6 text-sm text-gray-500">
+      <div className="text-center py-2 text-sm text-gray-500">
         <p>Powered by Simplific Pro • Seus dados estão seguros conosco</p>
       </div>
     </div>
