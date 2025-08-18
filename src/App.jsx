@@ -331,11 +331,13 @@ function App() {
       <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
-              <Bot className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h1 className="font-bold text-gray-900">Assistente Financeiro</h1>
+            <img 
+            src="/logo.png" 
+            alt="Logo Simplific Pro" 
+            className="w-10 h-10 rounded-full object-cover" 
+            />
+          <div>
+              <h1 className="font-bold text-gray-900">Assessor Financeiro</h1>
               <p className="text-sm text-gray-600">Simplific Pro</p>
             </div>
             <div className="ml-auto">
@@ -358,11 +360,13 @@ function App() {
                 <div className={`max-w-[80%] ${message.type === 'user' ? 'order-2' : 'order-1'}`}>
                   {message.type === 'bot' && (
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
-                        {message.icon ? <message.icon className="w-4 h-4 text-white" /> : <Bot className="w-4 h-4 text-white" />}
-                      </div>
-                      <span className="text-sm font-medium text-gray-700">Assistente</span>
-                    </div>
+                    <img 
+                    src="/logo.png" 
+                    alt="Logo Simplific Pro" 
+                    className="w-8 h-8 rounded-full object-cover" 
+                    />
+                    <span className="text-sm font-medium text-gray-700">Simplific</span>
+                  </div>
                   )}
                   
                   <Card className={`${message.type === 'user' ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white border-0' : 'bg-gray-50 border-gray-200'}`}>
@@ -408,10 +412,12 @@ function App() {
               <div className="flex justify-start">
                 <div className="max-w-[80%]">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
-                      <Bot className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="text-sm font-medium text-gray-700">Assistente</span>
+                    <img 
+                    src="/logo.png" 
+                    alt="Logo Simplific Pro" 
+                    className="w-8 h-8 rounded-full object-cover" 
+                    />
+                    <span className="text-sm font-medium text-gray-700">Assessor</span>
                   </div>
                   <Card className="bg-gray-50 border-gray-200">
                     <CardContent className="p-4">
@@ -430,9 +436,11 @@ function App() {
               <div className="flex justify-start">
                 <div className="max-w-[80%] w-full">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
-                      <Bot className="w-4 h-4 text-white" />
-                    </div>
+                    <img 
+                    src="/logo.png" 
+                    alt="Logo Simplific Pro" 
+                    className="w-8 h-8 rounded-full object-cover" 
+                    />
                     <span className="text-sm font-medium text-gray-700">Assistente</span>
                   </div>
                   <Card className="bg-gray-50 border-gray-200">
