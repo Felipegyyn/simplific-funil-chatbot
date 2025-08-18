@@ -365,7 +365,7 @@ function App() {
       </div>
 
       {/* Chat Container */}
-      <div className="max-w-4xl mx-auto px-4 py-6">
+      <div className="max-w-5xl mx-auto px-4 py-16">
         <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
           {/* Messages */}
           <div className="h-[600px] overflow-y-auto p-6 space-y-4">
