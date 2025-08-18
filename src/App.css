@@ -271,11 +271,6 @@
   }
 }
 
-/* Efeitos de hover para botões de opção */
-.option-button {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid #e5e7eb;
-}
 
 .option-button {
   white-space: normal !important;
@@ -358,5 +353,19 @@
 @media (max-width: 768px) {
   .h-\[600px\] {
     height: calc(100vh - 75px);
+  }
+
+  /*
+   * Corrige o texto que vaza dos botões de opção,
+   * tratando o conteúdo interno com flexbox para um
+   * controle mais preciso do alinhamento e quebra de linha.
+  */
+  .justify-start {
+    display: block; /* Garante que o botão se comporte como um bloco */
+    text-align: left;
+    white-space: normal; /* Permite que o texto quebre em múltiplas linhas */
+    height: auto; /* Faz a altura do botão se ajustar ao conteúdo */
+    line-height: 1.4; /* Melhora o espaçamento entre as linhas, se quebrar */
+    padding: 12px 14px; /* Ajusta o padding para dar mais espaço ao texto */
   }
 }
