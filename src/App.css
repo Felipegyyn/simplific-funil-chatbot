@@ -277,6 +277,12 @@
   border: 1px solid #e5e7eb;
 }
 
+.option-button {
+  white-space: normal !important;
+  height: auto !important;
+  text-align: left;
+}
+
 .option-button:hover {
   border-color: #10b981;
   background-color: #f0fdf4;
@@ -331,5 +337,26 @@
   50% {
     opacity: 0.8;
     transform: scale(1.1);
+  }
+}
+
+/* --- CORREÇÕES ADICIONAIS PARA RESPONSIVIDADE --- */
+
+/*
+ * Força a quebra de palavras longas dentro das bolhas do chat,
+ * impedindo que o texto "vaze" para fora da caixa.
+*/
+.max-w-\[80\%\] p {
+  word-break: break-word;
+}
+
+/*
+ * Ajusta a altura do container principal em telas menores
+ * para usar a altura da tela do dispositivo (vh)
+ * e evitar que os elementos "dancem".
+*/
+@media (max-width: 768px) {
+  .h-\[600px\] {
+    height: calc(100vh - 75px);
   }
 }
