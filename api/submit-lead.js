@@ -39,22 +39,21 @@ export default async function handler(request, response) {
           <p>Obrigado por completar nosso diagnóstico financeiro. Este é o primeiro passo para assumir o controle total da sua vida financeira e alcançar seus objetivos.</p>
           <p>Você demonstrou um grande interesse em organizar suas finanças, e estamos aqui para te ajudar nessa jornada.</p>
           <p>O Simplific Pro é a solução completa para você ter uma vida financeira saudável e alcançar a tão sonhada liberade finaneira</p>
-          <p>Anotar depois que gastou é igual tentar apagar um incêndio com um copo d'água, *NÃO RESOLVE*. Com o Simplific você prevê o futuro, registra despesas, cria e alcança metas, controla limites de cartões e faturas, aprende sobre investimentos com um HomeBroker interativo e ainda acompanha sua carteira deinvestimentos e a evolução dela.</p>
+          <p>Anotar depois que gastou é igual tentar apagar um incêndio com um copo d'água, <strong>NÃO RESOLVE</strong>. Com o Simplific você prevê o futuro, registra despesas, cria e alcança metas, controla limites de cartões e faturas, aprende sobre investimentos com um HomeBroker interativo e ainda acompanha sua carteira deinvestimentos e a evolução dela.</p>
           <p>UFFAA... É muita coisa, não é? </p>
-          <p>AH! Tem mais! clicando no botão abaixo nos próximos minutos, além de garantir o Simplific Pro, você também receberá de *brinde* o *Simplific.IA* Seu assesor financeiro *24 horas* no Whatsapp.</p>
-          <p>Já pensou ter a plataforma Simplific direto no whatsapp com um *assesor* 24 horas que realiza todas as funcionalidades que eu descrevi acima? Sensacional, né?</p>
+          <p>AH! Tem mais! clicando no botão abaixo nos próximos minutos, além de garantir o Simplific Pro, você também receberá de <strong>brinde</strong> o <strong>Simplific.IA</strong>. Seu assesor financeiro 24 horas no <strong>Whatsapp</strong>.</p>
+          <p>Já pensou ter a plataforma Simplific direto no whatsapp com um assesor <strong>24 horas</strong> que realiza todas as funcionalidades que eu descrevi acima? Sensacional, né?</p>
           <p>E não para por aí...</p>
-          <p>O assessor será seu parceiro de finanças. Ele te dá dicas, sugestões, agenda seus compromissos. TUDO o que você quiser. Um verdadeiro mordomo 😅</p>
-          <h2>O que achou disso tudo ${userName}? Sua liberdade financeira está a um clique de distância</h2>
+          <p>O assessor será seu parceiro de finanças. Ele te dá dicas, sugestões, agenda seus compromissos. <strong>TUDO</strong> o que você quiser. Um verdadeiro mordomo 😅</p>
+          <p>O que achou disso tudo ${userName}? Sua liberdade financeira está a um <strong>clique de distância</strong></p>
           <p style="text-align: center; margin: 30px 0;">
             <a href="https://www.simplificpro.com.br" style="background-color: #28a745; color: white; padding: 15px 25px; text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: bold;">
               Conhecer o Simplific Pro Agora!
             </a>
           </p>
-          <p>Não perca a chance de transformar sua relação com o dinheiro.</p>
           <br>
           <p>Atenciosamente,</p>
-          <p><strong>Equipe Simplific Pro</strong></p>
+          <p><strong>Felipe do Simplific</strong></p>
         </div>
       `,
     });
