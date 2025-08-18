@@ -178,14 +178,21 @@ function App() {
   });
   const [showForm, setShowForm] = useState(false);
   const messagesEndRef = useRef(null);
+  const formRef = useRef(null); // <-- ADICIONE ESTA LINHA
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
+  if (showForm && formRef.current) {
+    // Se o formulário está visível, rola para o topo dele
+    formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    // Senão, para todas as outras mensagens, rola para o final como de costume
     scrollToBottom();
-  }, [messages]);
+  }
+}, [messages, showForm]); // IMPORTANTE: Adicionar showForm às dependências
 
   useEffect(() => {
     if (currentStep) {
@@ -423,7 +430,7 @@ function App() {
             ))}
 
             {isTyping && (
-              <div className="flex justify-start">
+              <div ref={formRef} className="flex justify-start">
                 <div className="max-w-[80%]">
                   <div className="flex items-center gap-2 mb-2">
                     <img 
