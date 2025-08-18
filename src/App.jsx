@@ -352,7 +352,7 @@ useEffect(() => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex flex-col">
       {/* Header */}
       <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 py-4">
@@ -377,10 +377,10 @@ useEffect(() => {
       </div>
 
       {/* Chat Container */}
-      <div className="max-w-4xl mx-auto px-4 py-1">
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+      <div className="flex-grow max-w-4xl w-full mx-auto px-4 py-8 flex">
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 w-full flex flex-col overflow-hidden">
           {/* Messages */}
-          <div className="h-[600px] overflow-y-auto p-6 space-y-4">
+          <div className="flex-grow overflow-y-auto p-6 space-y-4">
             {messages.map((message) => (
               <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[80%] ${message.type === 'user' ? 'order-2' : 'order-1'}`}>
