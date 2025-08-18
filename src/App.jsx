@@ -184,15 +184,20 @@ function App() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  useEffect(() => {
+  // NOVO CÓDIGO COM A CORREÇÃO DE TIMING
+useEffect(() => {
   if (showForm && formRef.current) {
-    // Se o formulário está visível, rola para o topo dele
-    formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // A micro-pausa (setTimeout) garante que o DOM foi atualizado
+    // antes de tentarmos rolar a tela para o formulário.
+    // Isso resolve a "corrida" de renderização.
+    setTimeout(() => {
+      formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100); // 100ms é uma pequena espera segura.
   } else {
-    // Senão, para todas as outras mensagens, rola para o final como de costume
+    // Para todas as outras mensagens, a rolagem continua imediata.
     scrollToBottom();
   }
-}, [messages, showForm]); // IMPORTANTE: Adicionar showForm às dependências
+}, [messages, showForm]);
 
   useEffect(() => {
     if (currentStep) {
