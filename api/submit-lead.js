@@ -45,12 +45,13 @@ export default async function handler(request, response) {
           <p>Já pensou ter a plataforma Simplific direto no whatsapp com um assesor <strong>24 horas</strong> que realiza todas as funcionalidades que eu descrevi acima? Sensacional, né?</p>
           <p>E não para por aí...</p>
           <p>O assessor será seu parceiro de finanças. Ele te dá dicas, sugestões, agenda seus compromissos. <strong>TUDO</strong> o que você quiser. Um verdadeiro mordomo 😅</p>
-          <p>O que achou disso tudo ${userName}? Sua liberdade financeira está a um <strong>clique de distância</strong></p>
+          <p>O que achou disso tudo, ${userName}? Sua liberdade financeira está a um <strong>clique de distância</strong></p>
           <p style="text-align: center; margin: 30px 0;">
             <a href="https://www.simplificpro.com.br" style="background-color: #28a745; color: white; padding: 15px 25px; text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: bold;">
               Conhecer o Simplific Pro Agora!
             </a>
           </p>
+          <p>Não perca a chance de transformar sua relação com o dinheiro.</p>
           <br>
           <p>Atenciosamente,</p>
           <p><strong>Felipe do Simplific</strong></p>

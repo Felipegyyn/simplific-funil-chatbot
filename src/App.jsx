@@ -292,16 +292,29 @@ useEffect(() => {
       alert('Por favor, preencha todos os campos obrigatórios e aceite os termos.');
       return;
     }
-  
-    // Add user message with form data
+
+    // --- PASSO 1: ATUALIZA A INTERFACE IMEDIATAMENTE ---
+
+    // Adiciona a mensagem do usuário (com os dados) na tela
     const userMessage = {
       id: Date.now(),
       type: 'user',
       content: `📧 ${formData.email}\n📱 ${formData.whatsapp}${formData.name ? `\n👤 ${formData.name}` : ''}`
     };
     setMessages(prev => [...prev, userMessage]);
-  
-    // Prepare the complete data payload
+
+    // Esconde o formulário AGORA
+    setShowForm(false);
+
+    // Dispara a próxima etapa do chatbot AGORA
+    setTimeout(() => {
+      setCurrentStep('final');
+    }, 500);
+
+
+    // --- PASSO 2: EXECUTA AS TAREFAS LENTAS EM SEGUNDO PLANO ---
+
+    // Prepara os dados completos para enviar ao backend
     const painLevel = calculatePainLevel();
     const finalData = {
       name: formData.name,
@@ -317,7 +330,12 @@ useEffect(() => {
       }
     };
 
-    // --- Send data to our serverless function ---
+    // Dispara o evento de Lead para o Pixel imediatamente
+    if (window.fbq) {
+      window.fbq('track', 'Lead');
+    }
+
+    // Envia os dados para o backend sem bloquear a interface
     try {
       const response = await fetch('/api/submit-lead', {
         method: 'POST',
@@ -328,23 +346,16 @@ useEffect(() => {
       });
 
       if (!response.ok) {
-        // If the server response is not ok, throw an error
         throw new Error(`Server responded with status: ${response.status}`);
       }
-
-      console.log("Lead successfully sent to backend!");
+      
+      console.log("Dados enviados para o backend com sucesso em segundo plano!");
 
     } catch (error) {
-      // Log the error for debugging, but don't stop the user's flow
-      console.error("Failed to submit lead:", error);
-      // Optional: you could add a visual indicator for the user here
+      console.error("Falha ao enviar dados para o backend:", error);
+      // Neste ponto, a UI já foi atualizada para o usuário.
+      // Podemos adicionar aqui uma lógica futura para tentar reenviar os dados se falhar.
     }
-  
-    // Hide the form and continue the flow immediately
-    setShowForm(false);
-    setTimeout(() => {
-      setCurrentStep('final');
-    }, 500);
   };
 
   const handleCTAClick = () => {
