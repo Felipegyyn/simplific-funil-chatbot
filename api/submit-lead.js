@@ -39,7 +39,7 @@ export default async function handler(request, response) {
           <p>Obrigado por completar nosso diagnóstico financeiro. Este é o primeiro passo para assumir o controle total da sua vida financeira e alcançar seus objetivos.</p>
           <p>Você demonstrou um grande interesse em organizar suas finanças, e estamos aqui para te ajudar nessa jornada.</p>
           <p>O Simplific Pro é a solução completa para você ter uma vida financeira saudável e alcançar a tão sonhada liberade finaneira</p>
-          <p>Anotar depois que gastou é igual tentar apagar um incêndio com um copo d'água, <strong>NÃO RESOLVE</strong>. Com o Simplific você prevê o futuro, registra despesas, cria e alcança metas, controla limites de cartões e faturas, aprende sobre investimentos com um HomeBroker interativo e ainda acompanha sua carteira deinvestimentos e a evolução dela.</p>
+          <p>Anotar depois que gastou é igual tentar apagar um incêndio com um copo d'água, <strong>NÃO RESOLVE</strong>. Com o Simplific você prevê o futuro, registra despesas, cria e alcança metas, controla limites de cartões e faturas, aprende sobre investimentos com um HomeBroker interativo e ainda acompanha sua carteira de investimentos e a evolução dela.</p>
           <p>UFFAA... É muita coisa, não é? </p>
           <p>AH! Tem mais! clicando no botão abaixo nos próximos minutos, além de garantir o Simplific Pro, você também receberá de <strong>brinde</strong> o <strong>Simplific.IA</strong>. Seu assesor financeiro 24 horas no <strong>Whatsapp</strong>.</p>
           <p>Já pensou ter a plataforma Simplific direto no whatsapp com um assesor <strong>24 horas</strong> que realiza todas as funcionalidades que eu descrevi acima? Sensacional, né?</p>

@@ -264,6 +264,14 @@ useEffect(() => {
   };
 
   const handleOptionClick = (option) => {
+
+    // --- INÍCIO DA ADIÇÃO ---
+    // Dispara um evento quando o usuário clica para iniciar o questionário
+    if (option.next === 'question1' && typeof window.fbq === 'function') {
+      window.fbq('track', 'ViewContent');
+    }
+    // --- FIM DA ADIÇÃO ---
+
     // Add user message
     const userMessage = {
       id: Date.now(),
@@ -330,10 +338,12 @@ useEffect(() => {
       }
     };
 
+    // --- INÍCIO DA ADIÇÃO ---
     // Dispara o evento de Lead para o Pixel imediatamente
-    if (window.fbq) {
+    if (typeof window.fbq === 'function') {
       window.fbq('track', 'Lead');
     }
+    // --- FIM DA ADIÇÃO ---
 
     // Envia os dados para o backend sem bloquear a interface
     try {
