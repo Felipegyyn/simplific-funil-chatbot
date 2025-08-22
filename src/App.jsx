@@ -153,7 +153,7 @@ const CHAT_FLOW = {
   },
   final: {
     type: 'bot',
-    message: 'Perfeito! 🎉 Seu diagnóstico foi enviado para seu e-mail e em breve você receberá dicas exclusivas no WhatsApp.',
+    message: 'Perfeito! 🎉 Seu diagnóstico foi enviado para seu e-mail e em breve você receberá dicas exclusivas.',
     delay: 1500,
     next: 'cta'
   },
