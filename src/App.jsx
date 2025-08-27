@@ -60,6 +60,8 @@ function App() {
     e.preventDefault();
     if (!userInput.trim() || isLoading) return;
 
+    // --- INÍCIO DA CORREÇÃO ---
+    // Adiciona a mensagem do usuário à tela primeiro em todos os casos
     const newUserMessage = {
       id: Date.now(),
       type: 'user',
@@ -67,10 +69,20 @@ function App() {
     };
     setMessages(prev => [...prev, newUserMessage]);
     setUserInput('');
+
+    // Verifica se o usuário está respondendo à ÚLTIMA pergunta
+    if (currentQuestionIndex >= 5) { // 5 é o total de perguntas
+      setIsComplete(true);
+      // Chama a etapa final DEPOIS de mostrar a resposta do usuário
+      setTimeout(() => handleFinalStep(), 1500);
+      return; // Para a função aqui, não precisa mais chamar a IA
+    }
+    // --- FIM DA CORREÇÃO ---
+
     setIsLoading(true);
     setIsTyping(true);
 
-    // Constrói o histórico para enviar à IA
+    // Constrói o histórico para enviar à IA (removendo a última mensagem do usuário que já adicionamos)
     const historyForApi = messages.map(msg => ({
       role: msg.type === 'bot' ? 'model' : 'user',
       parts: [{ text: msg.content }]
@@ -102,11 +114,7 @@ function App() {
       const nextIndex = currentQuestionIndex + 1;
       setCurrentQuestionIndex(nextIndex);
 
-      // Verifica se o questionário terminou
-      if (nextIndex >= 5) { // 5 é o total de perguntas
-        setIsComplete(true);
-        setTimeout(() => handleFinalStep(), 2000);
-      }
+      // O bloco que verificava o fim da conversa foi removido daqui
 
     } catch (error) {
       console.error(error);
