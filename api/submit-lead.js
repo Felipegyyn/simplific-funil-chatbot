@@ -22,7 +22,7 @@ export default async function handler(request, response) {
       Com base nas respostas dele, escreva um diagnóstico financeiro conciso e personalizado em 3 parágrafos para ser enviado por e-mail.
       O tom deve ser encorajador, profissional e direto.
       - No primeiro parágrafo, identifique o principal desafio ou sentimento financeiro dele com base na conversa.
-      - No segundo, sugira uma ação prática e imediata que ele pode tomar para começar a resolver esse desafio.
+      - No segundo, sugira uma ação prática e imediata que ele pode tomar para começar a resolver esse desafio. Obs: Não aconselhe a usar planilha, baixar aplicativos e etc. Pois a ideia é focar no Simplific Pro. 
       - No terceiro, explique brevemente como a plataforma Simplific Pro é a solução ideal para ajudá-lo de forma definitiva.
       Aqui está a conversa:
       ---
