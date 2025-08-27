@@ -5,171 +5,22 @@ import { Card, CardContent } from './components/ui/card';
 import { Badge } from './components/ui/badge';
 import { Checkbox } from './components/ui/checkbox';
 import { 
-  MessageCircle, 
   Bot, 
-  User, 
   Send, 
-  TrendingDown, 
-  Target, 
-  AlertTriangle, 
-  DollarSign, 
-  Shield,
   CheckCircle,
   ArrowRight,
   Sparkles
 } from 'lucide-react';
 import './App.css';
 
-const CHAT_FLOW = {
-  welcome: {
-    type: 'bot',
-    message: 'Opa! E aí? 👋 Sou o assessor Simplific. Estou aqui para te ajudar a ter liberdade financeira',
-    delay: 1000,
-    next: 'intro'
-  },
-  intro: {
-    type: 'bot',
-    message: 'Vou te fazer algumas perguntinhas rápidas para entender seu momento financeiro. Isso vai me ajudar muito a criar um diagnóstico personalizado para você. Vamos lá?',
-    delay: 2000,
-    options: [
-      { text: 'Opa! vamos começar! 🚀', next: 'question1' },
-      { text: 'Ainda tenho dúvidas...', next: 'doubts' }
-    ]
-  },
-  doubts: {
-    type: 'bot',
-    message: 'Entendo suas dúvidas! Mas este diagnóstico é 100% gratuíto e leva menos de 1 minuto. Não vamos pedir informações sensíveis. Apenas algumas perguntas para entender seu perfil financeiro. Bora?',
-    delay: 2500,
-    options: [
-      { text: 'Certo! Vamos lá! ✨', next: 'question1' },
-      { text: 'Ainda não estou convencido(a)', next: 'convince' }
-    ]
-  },
-  convince: {
-    type: 'bot',
-    message: 'Sem problemas! Mais de 10.000 pessoas já fizeram este diagnóstico e descobriram como organizar suas finanças. É rápido, seguro e pode ser o primeiro passo para sua transformação financeira. Que tal tentar?',
-    delay: 2000,
-    options: [
-      { text: 'Está bem, vou tentar! Me convenceu 💪', next: 'question1' }
-    ]
-  },
-  question1: {
-    type: 'bot',
-    message: 'Perfeito! Essa é a primeira pergunta: Como você se sente em relação ao controle das suas finanças no dia a dia?',
-    icon: TrendingDown,
-    delay: 1500,
-    options: [
-      { text: 'Me sinto completamente perdido(a) 😰', value: 'high', next: 'question2' },
-      { text: 'Tenho algum controle, mas poderia ser melhor 😕', value: 'medium', next: 'question2' },
-      { text: 'Me sinto no controle na maior parte do tempo 😊', value: 'low', next: 'question2' },
-      { text: 'Tenho total controle das minhas finanças 😎', value: 'none', next: 'question2' }
-    ]
-  },
-  question2: {
-    type: 'bot',
-    message: 'Entendi! Agora me conta: Você consegue guardar dinheiro regularmente para seus objetivos e sonhos?',
-    icon: Target,
-    delay: 1500,
-    options: [
-      { text: 'Não consigo guardar nada, o dinheiro sempre acaba 😔', value: 'high', next: 'question3' },
-      { text: 'Consigo guardar pouco, mas não é consistente 😐', value: 'medium', next: 'question3' },
-      { text: 'Consigo guardar uma quantia razoável todo mês 🙂', value: 'low', next: 'question3' },
-      { text: 'Tenho uma reserva sólida e guardo regularmente 💪', value: 'none', next: 'question3' }
-    ]
-  },
-  question3: {
-    type: 'bot',
-    message: 'Sobre dívidas e cartão de crédito... Como está sua situação?',
-    icon: AlertTriangle,
-    delay: 1500,
-    options: [
-      { text: 'Estou endividado(a) e preocupado(a) 😰', value: 'high', next: 'question4' },
-      { text: 'Tenho algumas dívidas, mas nada muito grave 😕', value: 'medium', next: 'question4' },
-      { text: 'Poucas dívidas, consigo pagar em dia 😊', value: 'low', next: 'question4' },
-      { text: 'Não tenho dívidas significativas 😎', value: 'none', next: 'question4' }
-    ]
-  },
-  question4: {
-    type: 'bot',
-    message: 'E sobre investimentos? Qual sua situação atual?',
-    icon: DollarSign,
-    delay: 1500,
-    options: [
-      { text: 'Não invisto, não sei nem por onde começar 😅', value: 'high', next: 'question5' },
-      { text: 'Invisto pouco, gostaria de aprender mais 🤔', value: 'medium', next: 'question5' },
-      { text: 'Invisto regularmente, mas quero otimizar 📈', value: 'low', next: 'question5' },
-      { text: 'Sou um investidor experiente 🎯', value: 'none', next: 'question5' }
-    ]
-  },
-
-  question5: {
-    type: 'bot',
-    message: 'Como você planeja?',
-    icon: DollarSign,
-    delay: 1500,
-    options: [
-      { text: 'Não planejo nada. Só gasto 😅', value: 'high', next: 'question6' },
-      { text: 'Tento criar um orçamento, mas é dificil 🤔', value: 'medium', next: 'question6' },
-      { text: 'Tento gastar o que planejo quase sempre 📈', value: 'low', next: 'question6' },
-      { text: 'Só gasto exatamente o que está no meu orçamento 🎯', value: 'none', next: 'question6' }
-    ]
-  },
-
-  question6: {
-    type: 'bot',
-    message: 'Última pergunta: Como você se sente sobre seu futuro financeiro?',
-    icon: Shield,
-    delay: 1500,
-    options: [
-      { text: 'Muito inseguro(a), não sei o que me espera 😟', value: 'high', next: 'analysis' },
-      { text: 'Um pouco preocupado(a), mas esperançoso(a) 😐', value: 'medium', next: 'analysis' },
-      { text: 'Confiante, mas sempre posso melhorar 🙂', value: 'low', next: 'analysis' },
-      { text: 'Muito seguro(a) sobre meu futuro financeiro 😊', value: 'none', next: 'analysis' }
-    ]
-  },
-  analysis: {
-    type: 'bot',
-    message: 'Analisando suas respostas... 🤖💭',
-    delay: 2000,
-    next: 'result'
-  },
-  result: {
-    type: 'bot',
-    message: '',
-    delay: 1500,
-    next: 'contact_request'
-  },
-  contact_request: {
-    type: 'bot',
-    message: 'Para enviar seu diagnóstico completo e dicas personalizadas, preciso do seu contato. Pode me informar?',
-    delay: 2000,
-    next: 'contact_form'
-  },
-  contact_form: {
-    type: 'form',
-    message: 'Preencha os dados abaixo para receber seu diagnóstico:',
-    fields: ['name', 'email', 'whatsapp', 'consent'],
-    next: 'final'
-  },
-  final: {
-    type: 'bot',
-    message: 'Perfeito! 🎉 Seu diagnóstico foi enviado para seu e-mail e em breve você receberá dicas exclusivas.',
-    delay: 1500,
-    next: 'cta'
-  },
-  cta: {
-    type: 'bot',
-    message: 'Que tal conhecer agora mesmo a solução completa que pode transformar sua vida financeira de vez?',
-    delay: 2000,
-    cta: true
-  }
-};
-
 function App() {
   const [messages, setMessages] = useState([]);
-  const [currentStep, setCurrentStep] = useState('welcome');
-  const [userResponses, setUserResponses] = useState({});
+  const [userInput, setUserInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -178,122 +29,109 @@ function App() {
   });
   const [showForm, setShowForm] = useState(false);
   const messagesEndRef = useRef(null);
-  const formRef = useRef(null); // <-- ADICIONE ESTA LINHA
+  const formRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // NOVO CÓDIGO COM A CORREÇÃO DE TIMING
-useEffect(() => {
-  if (showForm && formRef.current) {
-    // A micro-pausa (setTimeout) garante que o DOM foi atualizado
-    // antes de tentarmos rolar a tela para o formulário.
-    // Isso resolve a "corrida" de renderização.
-    setTimeout(() => {
-      formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100); // 100ms é uma pequena espera segura.
-  } else {
-    // Para todas as outras mensagens, a rolagem continua imediata.
-    scrollToBottom();
-  }
-}, [messages, showForm]);
-
   useEffect(() => {
-    if (currentStep) {
-      handleBotMessage(currentStep);
+    if (showForm && formRef.current) {
+      setTimeout(() => {
+        formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    } else {
+      scrollToBottom();
     }
-  }, [currentStep]);
+  }, [messages, showForm]);
 
-  const calculatePainLevel = () => {
-    const responses = Object.values(userResponses);
-    const highCount = responses.filter(r => r === 'high').length;
-    const mediumCount = responses.filter(r => r === 'medium').length;
-    
-    if (highCount >= 3) return 'high';
-    if (highCount >= 2 || mediumCount >= 3) return 'medium';
-    return 'low';
-  };
-
-  const getPainMessage = (level) => {
-    const messages = {
-      high: '🚨 Suas respostas indicam que você está enfrentando desafios significativos com suas finanças. Mas não se preocupe - você está no lugar certo para mudar isso! O Simplific Pro foi criado exatamente para pessoas como você.',
-      medium: '⚠️ Você já tem algum controle financeiro, mas há muito espaço para melhorar. Com as ferramentas certas, você pode alcançar a estabilidade financeira que deseja.',
-      low: '✅ Parabéns! Você já tem um bom controle financeiro. O Simplific Pro pode te ajudar a otimizar ainda mais e alcançar seus objetivos mais rapidamente.'
-    };
-    return messages[level];
-  };
-
-  const handleBotMessage = (step) => {
-    const stepData = CHAT_FLOW[step];
-    if (!stepData) return;
-
-    setIsTyping(true);
-    
-    setTimeout(() => {
-      setIsTyping(false);
-      
-      let message = stepData.message;
-      
-      if (step === 'result') {
-        const painLevel = calculatePainLevel();
-        message = getPainMessage(painLevel);
-      }
-
-      const newMessage = {
+  // Mensagem inicial do chatbot
+  useEffect(() => {
+    setMessages([
+      {
         id: Date.now(),
         type: 'bot',
-        content: message,
-        icon: stepData.icon,
-        options: stepData.options,
-        cta: stepData.cta
-      };
-
-      setMessages(prev => [...prev, newMessage]);
-
-      if (stepData.next && !stepData.options && !stepData.cta && step !== 'contact_form') {
-        setTimeout(() => {
-          setCurrentStep(stepData.next);
-        }, 1000);
+        content: 'Olá! 👋 Sou o Simplific, seu novo assessor financeiro do Simplific Pro. Para começarmos seu diagnóstico exclusivo, por favor, me diga seu nome.',
       }
+    ]);
+  }, []);
 
-      if (step === 'contact_form') {
-        setShowForm(true);
-      }
-    }, stepData.delay || 1000);
-  };
+  const handleSendMessage = async (e) => {
+    e.preventDefault();
+    if (!userInput.trim() || isLoading) return;
 
-  const handleOptionClick = (option) => {
-
-    // --- INÍCIO DA ADIÇÃO ---
-    // Dispara um evento quando o usuário clica para iniciar o questionário
-    if (option.next === 'question1' && typeof window.fbq === 'function') {
-      window.fbq('track', 'ViewContent');
-    }
-    // --- FIM DA ADIÇÃO ---
-
-    // Add user message
-    const userMessage = {
+    const newUserMessage = {
       id: Date.now(),
       type: 'user',
-      content: option.text
+      content: userInput,
     };
-    setMessages(prev => [...prev, userMessage]);
+    setMessages(prev => [...prev, newUserMessage]);
+    setUserInput('');
+    setIsLoading(true);
+    setIsTyping(true);
 
-    // Store response if it has a value
-    if (option.value) {
-      setUserResponses(prev => ({
-        ...prev,
-        [currentStep]: option.value
-      }));
+    // Constrói o histórico para enviar à IA
+    const historyForApi = messages.map(msg => ({
+      role: msg.type === 'bot' ? 'model' : 'user',
+      parts: [{ text: msg.content }]
+    }));
+    historyForApi.push({ role: 'user', parts: [{ text: userInput }] });
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          history: historyForApi,
+          currentQuestionIndex: currentQuestionIndex
+        })
+      });
+
+      if (!res.ok) throw new Error('Falha na resposta da API');
+
+      const data = await res.json();
+
+      const newBotMessage = {
+        id: Date.now() + 1,
+        type: 'bot',
+        content: data.response
+      };
+      setMessages(prev => [...prev, newBotMessage]);
+
+      // Avança para a próxima pergunta
+      const nextIndex = currentQuestionIndex + 1;
+      setCurrentQuestionIndex(nextIndex);
+
+      // Verifica se o questionário terminou
+      if (nextIndex >= 5) { // 5 é o total de perguntas
+        setIsComplete(true);
+        setTimeout(() => handleFinalStep(), 2000);
+      }
+
+    } catch (error) {
+      console.error(error);
+      const errorMessage = {
+        id: Date.now() + 1,
+        type: 'bot',
+        content: "Desculpe, tive um problema para processar. Pode repetir, por favor?"
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
+      setIsTyping(false);
     }
-
-    // Move to next step
-    setTimeout(() => {
-      setCurrentStep(option.next);
-    }, 500);
   };
 
+  const handleFinalStep = () => {
+    const finalBotMessage = {
+      id: Date.now(),
+      type: 'bot',
+      content: 'Obrigado por compartilhar! Seu diagnóstico está quase pronto. Para que eu possa enviá-lo de forma personalizada e segura, por favor, preencha os campos abaixo.'
+    };
+    setMessages(prev => [...prev, finalBotMessage]);
+    setShowForm(true);
+  };
+  
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!formData.email || !formData.whatsapp || !formData.consent) {
@@ -301,70 +139,47 @@ useEffect(() => {
       return;
     }
 
-    // --- PASSO 1: ATUALIZA A INTERFACE IMEDIATAMENTE ---
-
-    // Adiciona a mensagem do usuário (com os dados) na tela
     const userMessage = {
       id: Date.now(),
       type: 'user',
-      content: `📧 ${formData.email}\n📱 ${formData.whatsapp}${formData.name ? `\n👤 ${formData.name}` : ''}`
+      content: `Pronto! Meus dados são: 📧 ${formData.email} | 📱 ${formData.whatsapp}`
     };
     setMessages(prev => [...prev, userMessage]);
-
-    // Esconde o formulário AGORA
     setShowForm(false);
 
-    // Dispara a próxima etapa do chatbot AGORA
     setTimeout(() => {
-      setCurrentStep('final');
-    }, 500);
+        const finalMessage = {
+            id: Date.now() + 1,
+            type: 'bot',
+            content: `Perfeito, ${formData.name || 'tudo certo'}! 🎉 Estou compilando seu diagnóstico exclusivo e o enviarei para seu e-mail em instantes. Enquanto isso, que tal conhecer a solução completa que pode transformar sua vida financeira de vez?`,
+            cta: true
+        };
+        setMessages(prev => [...prev, finalMessage]);
+    }, 1500);
 
-
-    // --- PASSO 2: EXECUTA AS TAREFAS LENTAS EM SEGUNDO PLANO ---
-
-    // Prepara os dados completos para enviar ao backend
-    const painLevel = calculatePainLevel();
+    const historyForApi = messages.map(msg => `${msg.type === 'bot' ? 'Simplific' : 'Usuário'}: ${msg.content}`).join('\n');
+    
     const finalData = {
       name: formData.name,
       email: formData.email,
       whatsapp: formData.whatsapp,
-      painLevel: painLevel,
-      answers: {
-        question1: userResponses.question1 || '',
-        question2: userResponses.question2 || '',
-        question3: userResponses.question3 || '',
-        question4: userResponses.question4 || '',
-        question5: userResponses.question5 || '',
-      }
+      conversationHistory: historyForApi
     };
 
-    // --- INÍCIO DA ADIÇÃO ---
-    // Dispara o evento de Lead para o Pixel imediatamente
     if (typeof window.fbq === 'function') {
       window.fbq('track', 'Lead');
     }
-    // --- FIM DA ADIÇÃO ---
 
-    // Envia os dados para o backend sem bloquear a interface
     try {
-      const response = await fetch('/api/submit-lead', {
+      // Usaremos a API antiga para salvar o lead e enviar o e-mail (que precisará ser adaptada)
+      await fetch('/api/submit-lead', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(finalData),
       });
-
-      if (!response.ok) {
-        throw new Error(`Server responded with status: ${response.status}`);
-      }
-      
       console.log("Dados enviados para o backend com sucesso em segundo plano!");
-
     } catch (error) {
       console.error("Falha ao enviar dados para o backend:", error);
-      // Neste ponto, a UI já foi atualizada para o usuário.
-      // Podemos adicionar aqui uma lógica futura para tentar reenviar os dados se falhar.
     }
   };
 
@@ -373,17 +188,13 @@ useEffect(() => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex flex-col">
+    <div className="h-screen bg-gray-50 flex flex-col">
       {/* Header */}
       <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center gap-3">
-            <img 
-            src="/logo.png" 
-            alt="Logo Simplific Pro" 
-            className="w-10 h-10 rounded-full object-cover" 
-            />
-          <div>
+            <img src="/logo.png" alt="Logo Simplific Pro" className="w-10 h-10 rounded-full object-cover" />
+            <div>
               <h1 className="font-bold text-gray-900">Assessor Financeiro</h1>
               <p className="text-sm text-gray-600">Simplific Pro</p>
             </div>
@@ -398,7 +209,7 @@ useEffect(() => {
       </div>
 
       {/* Chat Container */}
-      <div className="flex-grow max-w-4xl w-full mx-auto px-4 py-8 flex">
+      <div className="flex-grow max-w-5xl w-full mx-auto px-4 py-8 flex">
         <div className="bg-white rounded-2xl shadow-xl border border-gray-200 w-full flex flex-col overflow-hidden">
           {/* Messages */}
           <div className="flex-grow overflow-y-auto p-6 space-y-4">
@@ -407,36 +218,16 @@ useEffect(() => {
                 <div className={`max-w-[80%] ${message.type === 'user' ? 'order-2' : 'order-1'}`}>
                   {message.type === 'bot' && (
                     <div className="flex items-center gap-2 mb-2">
-                    <img 
-                    src="/logo.png" 
-                    alt="Logo Simplific Pro" 
-                    className="w-8 h-8 rounded-full object-cover" 
-                    />
-                    <span className="text-sm font-medium text-gray-700">Simplific</span>
-                  </div>
+                      <img src="/logo.png" alt="Logo Simplific Pro" className="w-8 h-8 rounded-full object-cover" />
+                      <span className="text-sm font-medium text-gray-700">Simplific</span>
+                    </div>
                   )}
                   
                   <Card className={`${message.type === 'user' ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white border-0' : 'bg-gray-50 border-gray-200'}`}>
                     <CardContent className="p-4">
-                      <p className={`whitespace-pre-line ${message.type === 'user' ? 'text-white' : 'text-gray-800'}`}>
+                      <p className="whitespace-pre-line text-gray-800">
                         {message.content}
                       </p>
-                      
-                      {message.options && (
-                        <div className="mt-4 space-y-2">
-                          {message.options.map((option, index) => (
-                            <Button
-                              key={index}
-                              variant="outline"
-                              className="w-full justify-start text-left h-auto p-3 hover:bg-green-50 hover:border-green-300 transition-all duration-200"
-                              onClick={() => handleOptionClick(option)}
-                            >
-                              {option.text}
-                            </Button>
-                          ))}
-                        </div>
-                      )}
-
                       {message.cta && (
                         <div className="mt-4">
                           <Button
@@ -456,15 +247,11 @@ useEffect(() => {
             ))}
 
             {isTyping && (
-              <div ref={formRef} className="flex justify-start">
+              <div className="flex justify-start">
                 <div className="max-w-[80%]">
                   <div className="flex items-center gap-2 mb-2">
-                    <img 
-                    src="/logo.png" 
-                    alt="Logo Simplific Pro" 
-                    className="w-8 h-8 rounded-full object-cover" 
-                    />
-                    <span className="text-sm font-medium text-gray-700">Assessor</span>
+                    <img src="/logo.png" alt="Logo Simplific Pro" className="w-8 h-8 rounded-full object-cover" />
+                    <span className="text-sm font-medium text-gray-700">Simplific</span>
                   </div>
                   <Card className="bg-gray-50 border-gray-200">
                     <CardContent className="p-4">
@@ -480,91 +267,65 @@ useEffect(() => {
             )}
 
             {showForm && (
-              <div className="flex justify-start">
+              <div ref={formRef} className="flex justify-start">
                 <div className="max-w-[80%] w-full">
-                  <div className="flex items-center gap-2 mb-2">
-                    <img 
-                    src="/logo.png" 
-                    alt="Logo Simplific Pro" 
-                    className="w-8 h-8 rounded-full object-cover" 
-                    />
-                    <span className="text-sm font-medium text-gray-700">Assistente</span>
-                  </div>
+                   <div className="flex items-center gap-2 mb-2">
+                      <img src="/logo.png" alt="Logo Simplific Pro" className="w-8 h-8 rounded-full object-cover" />
+                      <span className="text-sm font-medium text-gray-700">Simplific</span>
+                    </div>
                   <Card className="bg-gray-50 border-gray-200">
                     <CardContent className="p-4">
-                      <p className="text-gray-800 mb-4">Preencha os dados abaixo para receber seu diagnóstico:</p>
+                      <p className="text-gray-800 mb-4">{messages[messages.length - 1]?.content}</p>
                       <form onSubmit={handleFormSubmit} className="space-y-4">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Nome (opcional)
-                          </label>
-                          <Input
-                            type="text"
-                            placeholder="Como posso te chamar?"
-                            value={formData.name}
-                            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                            className="w-full"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            E-mail *
-                          </label>
-                          <Input
-                            type="email"
-                            placeholder="seu@email.com"
-                            value={formData.email}
-                            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                            className="w-full"
-                            required
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            WhatsApp *
-                          </label>
-                          <Input
-                            type="tel"
-                            placeholder="(11) 99999-9999"
-                            value={formData.whatsapp}
-                            onChange={(e) => setFormData(prev => ({ ...prev, whatsapp: e.target.value }))}
-                            className="w-full"
-                            required
-                          />
-                        </div>
-                        <div className="flex items-start space-x-2">
-                          <Checkbox
-                            id="consent"
-                            checked={formData.consent}
-                            onCheckedChange={(checked) => setFormData(prev => ({ ...prev, consent: checked }))}
-                            required
-                          />
-                          <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">
-                            Autorizo o contato via e-mail e WhatsApp para receber meu diagnóstico e informações sobre o Simplific Pro. *
-                          </label>
-                        </div>
-                        <Button
-                          type="submit"
-                          className="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold py-3 rounded-lg transition-all duration-200"
-                        >
-                          <Send className="w-4 h-4 mr-2" />
-                          Receber Meu Diagnóstico
-                        </Button>
+                        {/* Campos do formulário aqui... */}
+                         <div>
+                           <label className="block text-sm font-medium text-gray-700 mb-1">Nome *</label>
+                           <Input type="text" placeholder="Seu nome completo" value={formData.name} onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))} className="w-full" required/>
+                         </div>
+                         <div>
+                           <label className="block text-sm font-medium text-gray-700 mb-1">E-mail *</label>
+                           <Input type="email" placeholder="seu@email.com" value={formData.email} onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))} className="w-full" required/>
+                         </div>
+                         <div>
+                           <label className="block text-sm font-medium text-gray-700 mb-1">WhatsApp *</label>
+                           <Input type="tel" placeholder="(11) 99999-9999" value={formData.whatsapp} onChange={(e) => setFormData(prev => ({ ...prev, whatsapp: e.target.value }))} className="w-full" required/>
+                         </div>
+                         <div className="flex items-start space-x-2">
+                           <Checkbox id="consent" checked={formData.consent} onCheckedChange={(checked) => setFormData(prev => ({ ...prev, consent: checked }))} required/>
+                           <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">Autorizo o contato via e-mail e WhatsApp para receber meu diagnóstico e informações sobre o Simplific Pro. *</label>
+                         </div>
+                         <Button type="submit" className="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold py-3 rounded-lg transition-all duration-200">
+                           <CheckCircle className="w-4 h-4 mr-2" />
+                           Receber Meu Diagnóstico Exclusivo
+                         </Button>
                       </form>
                     </CardContent>
                   </Card>
                 </div>
               </div>
             )}
-
             <div ref={messagesEndRef} />
           </div>
+          
+          {/* Input Area */}
+          {!isComplete && !showForm && (
+            <div className="p-4 border-t border-gray-200 bg-white">
+              <form onSubmit={handleSendMessage} className="flex items-center gap-2">
+                <Input
+                  type="text"
+                  placeholder="Digite sua resposta aqui..."
+                  value={userInput}
+                  onChange={(e) => setUserInput(e.target.value)}
+                  disabled={isLoading}
+                  className="flex-grow"
+                />
+                <Button type="submit" disabled={isLoading || !userInput.trim()} className="bg-gradient-to-r from-green-500 to-blue-500 text-white">
+                  <Send className="w-4 h-4" />
+                </Button>
+              </form>
+            </div>
+          )}
         </div>
-      </div>
-
-      {/* Footer */}
-      <div className="text-center py-1 text-sm text-gray-500">
-        <p>Powered by Simplific Pro • Seus dados estão seguros conosco</p>
       </div>
     </div>
   );
