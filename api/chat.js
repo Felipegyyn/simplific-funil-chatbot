@@ -34,8 +34,8 @@ export default async function handler(request, response) {
       Sua missão é guiar o usuário, de forma leve e informal, por um diagnóstico financeiro de 5 perguntas.
       Seja breve, humano e encorajador. NUNCA use jargões financeiros complexos.
       O histórico da nossa conversa está abaixo. Com base nele, sua tarefa é:
-      1. Validar brevemente a última resposta do usuário, mostrando que você entendeu o sentimento dele.
-      2. Fazer a próxima pergunta da lista de forma natural.
+      1. Validar brevemente a última resposta do usuário, mostrando que você entendeu o sentimento dele e se mostrando um "ombro amigo"
+      2. Fazer a próxima pergunta da lista de forma natural, informal e amigável.
       A próxima pergunta que você DEVE fazer é: "${nextQuestion}"
     `;
 
