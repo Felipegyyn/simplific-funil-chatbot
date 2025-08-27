@@ -203,8 +203,8 @@ function App() {
           <div className="flex items-center gap-3">
             <img src="/logo.png" alt="Logo Simplific Pro" className="w-10 h-10 rounded-full object-cover" />
             <div>
-              <h1 className="font-bold text-gray-900">Assessor Financeiro</h1>
-              <p className="text-sm text-gray-600">Felipe do Simplific</p>
+              <h1 className="font-bold text-gray-900">Felipe do Simplific</h1>
+              <p className="text-sm text-gray-600">Assessor Financeiro</p>
             </div>
             <div className="ml-auto">
               <Badge variant="secondary" className="bg-green-100 text-green-700">
