@@ -6,7 +6,7 @@ const questions = [
   "Entendi. E em relação aos seus objetivos e sonhos, você consegue guardar dinheiro regularmente para alcançá-los?",
   "Ok. E sobre dívidas e o uso do cartão de crédito, como está sua situação atual?",
   "Certo. E sobre o mundo dos investimentos, qual sua situação hoje?",
-  "Obrigado pela honestidade. Última e mais importante pergunta: Como você se sente em relação à segurança do seu futuro financeiro? Desbafe comigo"
+  "Obrigado pela honestidade. Última e mais importante pergunta: Como você se sente em relação à segurança do seu futuro financeiro? Desabafe comigo"
 ];
 
 // Inicializa o cliente da IA com a nossa chave de API
