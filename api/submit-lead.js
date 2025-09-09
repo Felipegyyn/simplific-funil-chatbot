@@ -48,7 +48,7 @@ export default async function handler(request, response) {
           <p>Ter clareza é o primeiro passo. A solução completa para colocar tudo isso em prática, criar metas, controlar despesas e ter paz de espírito está a um clique de distância.</p>
           <p style="text-align: center; margin: 30px 0;">
             <a href="https://www.simplificpro.com.br" style="background-color: #28a745; color: white; padding: 15px 25px; text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: bold;">
-              Conhecer o Simplific Pro Agora!
+              Conhecer o Simplific Pro por R$ 1,99 Agora!
             </a>
           </p>
           <p>Não perca a chance de transformar sua relação com o dinheiro.</p>
