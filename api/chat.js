@@ -3,10 +3,18 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 // As perguntas que guiarão nosso funil.
 const questions = [
   "Primeiramente, me conta, qual é o seu maior desafio financeiro hoje?",
-  "Entendi. E em relação aos seus objetivos e sonhos, você consegue guardar dinheiro regularmente para alcançá-los?",
-  "Ok. E sobre dívidas e o uso do cartão de crédito, como está sua situação atual?",
+  "Você costuma anotar seus gastos, nem que seja em um papelzinho?",
+  "Se a respostar anterior for 'sim' me diga como você costuma controlar seus gastos? Se a resposta anterior for 'Não', me diga o que te impede de controlar seus gastos?",
+  "Entendi. Você guardar dinheiro regularmente para atingir alguma meta?",
+  "Você consegue criar orçamentos mensais para evitar surpresas no fim do mês?",
+  "Ok. E sobre dívidas e o uso do cartão de crédito, como está sua situação atual? Seja sincero",
   "Certo. E sobre o mundo dos investimentos, qual sua situação hoje?",
-  "Obrigado pela honestidade. Última e mais importante pergunta: Como você se sente em relação à segurança do seu futuro financeiro? Desabafe comigo"
+  "Estamos quase no fim. Como você se sente em relação à segurança do seu futuro financeiro?",
+  "Agora, farei quatro perguntas que definirão seu futuro financeiro: Acompanhar suas finanças no whatsapp, te ajudaria?",
+  "Registrar despesas, receitas, gastos no cartão, agendar compromissos, receber lembretes direto no whatsapp, seria uma boa ideia?",
+  "Etendi! Recber dicas de como economizar, de como fazer um planejamento, de como controlar dívidas no cartão de crédito direto no whastapp, faria sentido?",
+  "Última pergunta: Se eu te dissesse que posso de dosponibilizar um acessor financeiro com direito a tudo isso e ainda acesso a uma plataforma para chamar se SUA, você acreditaria?",
+  "Obrigado pela honestidade. Em instantes você receberá um diagóstico completo da sua situação atual. Posso te enviar?"
 ];
 
 // Inicializa o cliente da IA com a nossa chave de API
