@@ -71,7 +71,7 @@ function App() {
     setUserInput('');
 
     // Verifica se o usuário está respondendo à ÚLTIMA pergunta
-    if (currentQuestionIndex >= 5) { // 5 é o total de perguntas
+    if (currentQuestionIndex >= 13) { // 13 é o total de perguntas
       setIsComplete(true);
       // Chama a etapa final DEPOIS de mostrar a resposta do usuário
       setTimeout(() => handleFinalStep(), 1500);

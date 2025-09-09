@@ -5,7 +5,7 @@ const questions = [
   "Primeiramente, me conta, qual é o seu maior desafio financeiro hoje?",
   "Você costuma anotar seus gastos, nem que seja em um papelzinho?",
   "Se a respostar anterior for 'sim' me diga como você costuma controlar seus gastos? Se a resposta anterior for 'Não', me diga o que te impede de controlar seus gastos?",
-  "Entendi. Você guardar dinheiro regularmente para atingir alguma meta?",
+  "Você guarda dinheiro regularmente para atingir alguma meta?",
   "Você consegue criar orçamentos mensais para evitar surpresas no fim do mês?",
   "Ok. E sobre dívidas e o uso do cartão de crédito, como está sua situação atual? Seja sincero",
   "Certo. E sobre o mundo dos investimentos, qual sua situação hoje?",
