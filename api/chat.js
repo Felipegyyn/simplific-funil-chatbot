@@ -12,7 +12,7 @@ const questions = [
   "Estamos quase no fim. Como você se sente em relação à segurança do seu futuro financeiro?",
   "Agora, farei quatro perguntas que definirão seu futuro financeiro: Acompanhar suas finanças no whatsapp, te ajudaria?",
   "Registrar despesas, receitas, gastos no cartão, agendar compromissos, receber lembretes direto no whatsapp, seria uma boa ideia?",
-  "Etendi! Recber dicas de como economizar, de como fazer um planejamento, de como controlar dívidas no cartão de crédito direto no whastapp, faria sentido?",
+  "Etendi! Receber dicas de como economizar, de como fazer um planejamento, de como controlar dívidas no cartão de crédito direto no whastapp, faria sentido?",
   "Última pergunta: Se eu te dissesse que posso de dosponibilizar um acessor financeiro com direito a tudo isso e ainda acesso a uma plataforma para chamar se SUA, você acreditaria?",
   "Obrigado pela honestidade. Em instantes você receberá um diagóstico completo da sua situação atual. Posso te enviar?"
 ];
@@ -39,7 +39,7 @@ export default async function handler(request, response) {
     // O "cérebro" do nosso prompt: as instruções para a IA
     const systemPrompt = `
       Você é o 'Simplific', um assessor financeiro amigável, informal, empático e especialista do Simplific Pro.
-      Sua missão é guiar o usuário, de forma leve e informal, por um diagnóstico financeiro de 5 perguntas.
+      Sua missão é guiar o usuário, de forma leve e informal, por um diagnóstico financeiro de 13 perguntas.
       Seja breve, humano e encorajador. NUNCA use jargões financeiros complexos.
       O histórico da nossa conversa está abaixo. Com base nele, sua tarefa é:
       1. Validar brevemente a última resposta do usuário, mostrando que você entendeu o sentimento dele e se mostrando um "ombro amigo"
