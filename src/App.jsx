@@ -159,7 +159,7 @@ function App() {
         const finalMessage = {
             id: Date.now() + 1,
             type: 'bot',
-            content: `Perfeito, ${formData.name || 'tudo certo'}! 🎉 Estou compilando seu diagnóstico exclusivo e o enviarei para seu e-mail em instantes. Enquanto isso, que tal conhecer a solução completa que pode transformar sua vida financeira de vez?`,
+            content: `Perfeito, ${formData.name || 'tudo certo'}! 🎉 Estou compilando seu diagnóstico exclusivo e o enviarei para seu e-mail em instantes. Enquanto isso, que tal conhecer, por apenas R$ 1,99, a solução completa que pode transformar sua vida financeira de vez?`,
             cta: true
         };
         setMessages(prev => [...prev, finalMessage]);
