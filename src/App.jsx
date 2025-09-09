@@ -51,7 +51,7 @@ function App() {
       {
         id: Date.now(),
         type: 'bot',
-        content: 'Olá! 👋 Sou o Simplific, seu novo assessor financeiro do Simplific Pro. Para começarmos seu diagnóstico exclusivo, por favor, me diga seu nome.',
+        content: 'Olá! 👋 Sou o Simplific, seu novo assessor financeiro do Simplific Pro. Para começarmos seu diagnóstico exclusivo e adquirir o acesso por R$ 1,99, por favor, me diga seu nome.',
       }
     ]);
   }, []);
