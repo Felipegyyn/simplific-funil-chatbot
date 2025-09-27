@@ -13,7 +13,7 @@ const questions = [
   "Agora, farei quatro perguntas que definirão seu futuro financeiro: Acompanhar suas finanças no whatsapp, te ajudaria?",
   "Registrar despesas, receitas, gastos no cartão, agendar compromissos, receber lembretes direto no whatsapp, seria uma boa ideia?",
   "Etendi! Receber dicas de como economizar, de como fazer um planejamento, de como controlar dívidas no cartão de crédito direto no whastapp, faria sentido?",
-  "Última pergunta: Se eu te dissesse que por apenas R$ 1,99 eu posso de disponibilizar um acessor financeiro disponível 24 horas, com direito a tudo isso e ainda acesso a uma plataforma para chamar se SUA, você acreditaria?",
+  "Última pergunta: Se eu te dissesse que por menos de um cafézinho por dia, eu posso de disponibilizar um acessor financeiro disponível 24 horas, com direito a tudo isso e ainda acesso a uma plataforma para chamar se SUA, você acreditaria?",
   "Obrigado pela honestidade. Em instantes você receberá um diagóstico completo da sua situação atual. Posso te enviar?"
 ];
 

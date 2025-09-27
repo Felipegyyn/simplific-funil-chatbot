@@ -51,7 +51,7 @@ function App() {
       {
         id: Date.now(),
         type: 'bot',
-        content: 'Olá! 👋 Sou o Simplific, seu novo assessor financeiro do Simplific Pro. Para começarmos seu diagnóstico exclusivo e adquirir o acesso por R$ 1,99, por favor, me diga seu nome.',
+        content: 'Olá! 👋 Sou o Simplific, seu novo assessor financeiro do Simplific Pro. Para começarmos seu diagnóstico exclusivo e adquirir o acesso, por favor, me diga seu nome.',
       }
     ]);
   }, []);
@@ -159,7 +159,7 @@ function App() {
         const finalMessage = {
             id: Date.now() + 1,
             type: 'bot',
-            content: `Perfeito, ${formData.name || 'tudo certo'}! 🎉 Estou compilando seu diagnóstico exclusivo e o enviarei para seu e-mail em instantes. Enquanto isso, que tal conhecer, por apenas R$ 1,99, a solução completa que pode transformar sua vida financeira de vez?`,
+            content: `Perfeito, ${formData.name || 'tudo certo'}! 🎉 Estou compilando seu diagnóstico exclusivo e o enviarei para seu e-mail em instantes. Enquanto isso, que tal conhecer a solução completa que pode transformar sua vida financeira de vez?`,
             cta: true
         };
         setMessages(prev => [...prev, finalMessage]);
