@@ -15,7 +15,7 @@ export default async function handler(request, response) {
 
   try {
     // --- TAREFA 1: Gerar o diagnóstico personalizado com a IA ---
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     const prompt = `
       Você é um especialista em finanças pessoais do Simplific Pro.
       A seguir, a transcrição de uma conversa com um potencial cliente chamado ${name}.
