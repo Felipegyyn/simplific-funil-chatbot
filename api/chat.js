@@ -56,7 +56,7 @@ export default async function handler(request, response) {
         ...history // Adiciona o histórico da conversa atual
       ],
       generationConfig: {
-        maxOutputTokens: 150,
+        maxOutputTokens: 1500,
       },
     });
 
