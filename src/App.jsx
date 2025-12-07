@@ -192,7 +192,7 @@ function App() {
   };
 
   const handleCTAClick = () => {
-    window.open('https://www.simplificpro.com.br', '_blank');
+    window.open('https://www.simplificpro.com', '_blank');
   };
 
   return (
