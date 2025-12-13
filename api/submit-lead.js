@@ -66,6 +66,27 @@ export default async function handler(request, response) {
       body: JSON.stringify({ name, email, whatsapp, conversationHistory }),
       redirect: 'follow'
     });
+
+
+    // --- TAREFA 4: Enviar lead para o Simplific Pro (Backend Python) ---
+    try {
+        // CORREÇÃO: URL sem o traço entre simplific e pro
+        const backendUrl = 'https://simplificpro-backend.onrender.com/api/auth/register-lead'; 
+        
+        await fetch(backendUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                name, 
+                email, 
+                whatsapp, 
+                source: 'diagnostico_ia' 
+            })
+        });
+        console.log("Lead sincronizado com o Backend Python.");
+    } catch (bridgeError) {
+        console.error("Falha na ponte com Backend Python:", bridgeError);
+    }
     
     return response.status(200).json({ message: 'Lead captured and email sent successfully!' });
 
